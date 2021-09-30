@@ -11,7 +11,7 @@ export class PacienteAtendidoDirective implements OnInit {
 
   ngOnInit() {
     if (this.pacienteAtendido) {
-      this.el.nativeElement.style.backgroundColor = "lightgreen";
+      this.el.nativeElement.style.backgroundColor = "#7bd1a1";
     }
   }
 

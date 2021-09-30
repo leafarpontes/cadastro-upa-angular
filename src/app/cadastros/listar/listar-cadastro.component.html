@@ -1,39 +1,41 @@
-<h1>Cadastros</h1>
+<h1 class="text-center">Cadastros</h1>
 
-<table class="table table-striped table-light table-bordered">
-    <thead class="thead-light">
-        <tr>
-            <th>Nome do Paciente</th>
-            <th>Prioridade</th>
-            <th>Atendido</th>
-            <th class="text-center">
-                <a class="btn btn-sm btn-success" [routerLink] = "['/cadastros/cadastrar']">
-                    Novo
-                </a>
-            </th>
-        </tr>
-    </thead>
-    <tbody *ngFor="let cadastro of cadastros">
-        <tr *ngIf="cadastro.ativo === true">
-            <td [pacienteAtendido]="cadastro.atendido">
-                {{ cadastro.nomePaciente }}
-            </td>
-            <td>
-                {{ cadastro.prioridade }}
-            </td>
-            <td style="width: 70px" class="text-center">
-                <input type="checkbox" [value]="cadastro.id" [checked]="cadastro.atendido" (click)="alterarStatus(cadastro)">
-            </td>
-            <td class="text-center" style="width: 200px">
-                <a title="Editar" alt="Editar" class="btn btn-sm btn-info" style="margin-right: 5px" [routerLink] = "['/cadastros/editar', cadastro.id]">
-                    Editar
-                </a>
-                <a href="#" title="Remover" alt="Remover" class="btn btn-sm btn-danger" (click)="remover($event, cadastro)">
-                    Remover
-                </a>
-            </td>
-        </tr>
-    </tbody>
-</table>
+<div>
+    <table class="table table-striped table-light table-bordered tabela-listar">
+        <thead class="thead-light">
+            <tr>
+                <th>Nome do Paciente</th>
+                <th>Prioridade</th>
+                <th>Atendido</th>
+                <th class="text-center">
+                    <a class="btn btn-sm btn-success" [routerLink] = "['/cadastros/cadastrar']">
+                        Novo
+                    </a>
+                </th>
+            </tr>
+        </thead>
+        <tbody *ngFor="let cadastro of cadastros">
+            <tr *ngIf="cadastro.ativo === true" [pacienteAtendido]="cadastro.atendido">
+                <td>
+                    {{ cadastro.nomePaciente }}
+                </td>
+                <td>
+                    {{ cadastro.prioridade }}
+                </td>
+                <td style="width: 70px" class="text-center">
+                    <input type="checkbox" [value]="cadastro.id" [checked]="cadastro.atendido" (click)="alterarStatus(cadastro)">
+                </td>
+                <td class="text-center" style="width: 200px">
+                    <a title="Editar" alt="Editar" class="btn btn-sm btn-info" style="margin-right: 5px" [routerLink] = "['/cadastros/editar', cadastro.id]">
+                        Editar
+                    </a>
+                    <a href="#" title="Remover" alt="Remover" class="btn btn-sm btn-danger" (click)="remover($event, cadastro)">
+                        Remover
+                    </a>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</div>
 
 <p *ngIf="cadastros.length == 0">Nenhum cadastro.</p>

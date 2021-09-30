@@ -1,14 +1,14 @@
-<h1>Editar cadastro</h1>
+<h1 class="text-center">Editar cadastro</h1>
 
-<div class="container">
-    <form #formCadastro="ngForm">
+<div class="container-fluid">
+    <form #formCadastro="ngForm" class="formCadastro">
         <div class="form-group">
             <label for="nomePaciente">Nome do paciente</label>
-            <input type="text" id="nomePaciente" name="nomePaciente" [(ngModel)]="cadastro.nomePaciente" #nomePaciente="ngModel">
+            <input type="text" id="nomePaciente" name="nomePaciente" [(ngModel)]="cadastro.nomePaciente" #nomePaciente="ngModel" class="form-control">
         </div>
         <div class="form-group">
             <label for="prioridade">Prioridade</label>
-            <select name="prioridade" id="prioridade" [(ngModel)]="cadastro.prioridade" #prioridade="ngModel">
+            <select name="prioridade" id="prioridade" [(ngModel)]="cadastro.prioridade" #prioridade="ngModel" class="form-control">
                 <option value="Imediato">Imediato (Alto risco)</option>
                 <option value="Prioritário">Prioritário</option>
                 <option value="Pouca gravidade">Pouca gravidade</option>
